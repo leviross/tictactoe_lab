@@ -13,15 +13,23 @@
 // 	 }
 // }
 
-
+// 1) Wait for the page to load , then start the function
+// 2) Target all the html elements by filtering the ones we need into an array
+// 3) Iterate over the array with a for loop
+// 4) For each iteration, listen for a 'click' event
+// 5) For each 'click', check to make sure the square is empty
+// 6) For each 'click', raise the counter variable
+// 7) If its not empty, dont do anything, dont raise counter
+// 8) If its empty, toggle between X and O in innerText of 'this' element
+// 9) 
 
 // document.addEventListener('DOMContentLoaded', function() {
-// 	var cells = document.getElementById('board').getElementsByTagName('p');
+
+// 	var cells = document.querySelectorAll('.cell');
 // 	for (var i = 0; i < cells.length; i++) {
 // 		cells[i].addEventListener('click', function() {
-// 		// cells[i].addEventListener('click', function() {
-// 		// 	//alert('worked');
-// 		this.innerHTML = 'X';
+// 		alert('worked');
+// 		// this.innerHTML = 'X';
 // 		// 	//play(); 
 // 		// })
 // 		})
@@ -49,19 +57,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		})
 	}
-});
+	var reset = document.getElementById('reset');
 
 
-var reset  = document.querySelector('.footer');
-document.addEventListener('DOMContentLoaded', function() {
-var reset = document.getElementById('reset');
+
 reset.addEventListener("click", function() {
-
-		window.location.reload();
-
+			for (var i = 0; i < cells.length; i++) {
+				cells[i].innerText = '';
+		// window.location.reload();
+			}
 	
 	});
+
 });
+
+
+
 
 
 
