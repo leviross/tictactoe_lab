@@ -1,77 +1,67 @@
-//Lets first make our variables
+// This commented code is what I pieced togehter, almost got there..
 
-var nextTurn = 'X';
-function next() {
-	turn = turn === 'X' ? 'O' : 'X';
-}
-function play() { 
-	if (this.innerHTML === '') {
-		this.innerHTML = turn; 
-		next();
-	}
-}
+// var nextTurn = 'X';
+// var next = function() {
+// 	turn = turn === 'X' ? 'O' : 'X';
+// };
+// var play = function() { 
+// 	 if (this.innerHTML === ' ') {
+// 		//console.log(this);
+// 		this.innerHTML = 'X'; 
+// 	 	//next(); 
+// 	 	nextTurn = 'O';
+// 	 }
+// }
 
 
 
+// document.addEventListener('DOMContentLoaded', function() {
+// 	var cells = document.getElementById('board').getElementsByTagName('p');
+// 	for (var i = 0; i < cells.length; i++) {
+// 		cells[i].addEventListener('click', function() {
+// 		// cells[i].addEventListener('click', function() {
+// 		// 	//alert('worked');
+// 		this.innerHTML = 'X';
+// 		// 	//play(); 
+// 		// })
+// 		})
+// 	}
+// });
+
+var turns = 0; 
 
 document.addEventListener('DOMContentLoaded', function() {
 	var cells = document.getElementById('board').getElementsByTagName('p');
-	for (var i in cells) {
-		cells[i].addEventListener('click', function() {
-			play(); 
+	for (var i = 0; i < cells.length; i++) {
+		cells[i].addEventListener("click", function() {
+			if ((this.innerText === 'X') || (this.innerText === 'O')) {
+				return;
+			}
+			turns += 1; 
+			if (turns % 2 === 0) {
+				this.innerText = 'X'; 
+				this.style.color = "red";
+			}
+			else {
+				this.innerText = 'O';
+				this.style.color = "blue";
+			}
+
 		})
 	}
 });
-document.getElementById('reset').addEventListener('click', function() {
-	for (var i in cells) {
-		cells[i].innerHTML = ' ';
-	}
-}); 
-
-// So one thing we can do it make a function that will register events 9 times
-
-// for (var i=1; i< 10; i++) {
-
-// 	document.addEventListener('DOMContentLoaded', function() {
-// 	document.getElementsByTagName('p').addEventListener('click', function() {
-// 		document.getElementsByTagName('p').innerHTML = playersTurn();
-
-// 	 });
-// });
-
-// }
 
 
-// This might be a little ghetto, but does it make sense?
-// yes! this is much smatter. i totally it so far. 
+var reset  = document.querySelector('.footer');
+document.addEventListener('DOMContentLoaded', function() {
+var reset = document.getElementById('reset');
+reset.addEventListener("click", function() {
 
-// cool
+		window.location.reload();
 
-
-// Another option is to make one listner, and then just do a onclick event in the html
-// that was wrong file, anyways..
-// No worries. I guess the harder q is th logic of the game, mess with it a little, and come to me if ur stuck
-
-
-
-// two more small things
-// 1. Remember what I said about thinking in terms of not repeating yourself. As much as possible, not always tho
-// 2. Wanna teach you a cool trick.
-
-// Every language has shorthand, shortcuts for common things
-
-
-// imagine this code
-// btw that was wrong (== means we compare, = means we assign, lmk if your confused about that)
-// if(y == true) {
-// 	x= false
-// } 
-// else {
-// 	x = 'Whatever'
-// }
-
-
-
+	
+	});
+});
 
 
 
